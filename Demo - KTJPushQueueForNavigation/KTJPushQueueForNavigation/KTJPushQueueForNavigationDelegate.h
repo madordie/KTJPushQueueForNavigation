@@ -45,12 +45,16 @@
 #ifdef KTJNavQueueUseExtension
 
     #import "NavigationController.h" //  根据自己需要引入自己NavigationController的头文件并赋给下方宏
-    #define KTJXXNavigationController  NavigationController
+    #define KTJXXNavigationController  UINavigationController
     @interface KTJXXNavigationController (KTJPushQueue)
 
     @property (nonatomic, assign) BOOL ktj_useNavPushQueue; //  default NO.
 
     @property (nonatomic, strong, readonly) KTJPushQueueForNavigationDelegate *ktj_navPushQueue;
+
+    @end
+
+    @interface UIViewController (KTJPushQueue)
 
     @end
 
@@ -70,7 +74,7 @@
     /**
      *  需要手动在viewDidDisappear
      */
-    - (void)ktj_tellMeViewDidAppear;
+    - (void)ktj_tellPushQueueViewDidAppear;
 
     @end
 
