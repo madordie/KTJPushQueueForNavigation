@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		325C1F761E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 325C1F751E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.m */; };
 		32A4C3DF1C1E8B5800A931A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C3DE1C1E8B5800A931A2 /* main.m */; };
 		32A4C3E21C1E8B5800A931A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C3E11C1E8B5800A931A2 /* AppDelegate.m */; };
 		32A4C3E51C1E8B5800A931A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C3E41C1E8B5800A931A2 /* ViewController.m */; };
 		32A4C3E81C1E8B5800A931A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C3E61C1E8B5800A931A2 /* Main.storyboard */; };
 		32A4C3EA1C1E8B5800A931A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C3E91C1E8B5800A931A2 /* Assets.xcassets */; };
 		32A4C3ED1C1E8B5800A931A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A4C3EB1C1E8B5800A931A2 /* LaunchScreen.storyboard */; };
-		32A4C3F71C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C3F61C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.m */; };
 		32A4C3FA1C1E8E5700A931A2 /* XXXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A4C3F91C1E8E5700A931A2 /* XXXViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		325C1F741E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTJPushQueueForNavigationDelegate.h; sourceTree = "<group>"; };
+		325C1F751E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTJPushQueueForNavigationDelegate.m; sourceTree = "<group>"; };
 		32A4C3DA1C1E8B5800A931A2 /* Demo - KTJPushQueueForNavigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo - KTJPushQueueForNavigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A4C3DE1C1E8B5800A931A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32A4C3E01C1E8B5800A931A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,8 +30,6 @@
 		32A4C3E91C1E8B5800A931A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32A4C3EC1C1E8B5800A931A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32A4C3EE1C1E8B5800A931A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32A4C3F51C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTJPushQueueForNavigationDelegate.h; sourceTree = "<group>"; };
-		32A4C3F61C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTJPushQueueForNavigationDelegate.m; sourceTree = "<group>"; };
 		32A4C3F81C1E8E5700A931A2 /* XXXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXXViewController.h; sourceTree = "<group>"; };
 		32A4C3F91C1E8E5700A931A2 /* XXXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,10 +45,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		325C1F731E4C7CE300FF6B5D /* KTJPushQueueForNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				325C1F741E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.h */,
+				325C1F751E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.m */,
+			);
+			name = KTJPushQueueForNavigation;
+			path = ../KTJPushQueueForNavigation;
+			sourceTree = "<group>";
+		};
 		32A4C3D11C1E8B5800A931A2 = {
 			isa = PBXGroup;
 			children = (
-				32A4C3F41C1E8B9A00A931A2 /* KTJPushQueueForNavigation */,
+				325C1F731E4C7CE300FF6B5D /* KTJPushQueueForNavigation */,
 				32A4C3DC1C1E8B5800A931A2 /* Demo - KTJPushQueueForNavigation */,
 				32A4C3DB1C1E8B5800A931A2 /* Products */,
 			);
@@ -86,15 +96,6 @@
 				32A4C3DE1C1E8B5800A931A2 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		32A4C3F41C1E8B9A00A931A2 /* KTJPushQueueForNavigation */ = {
-			isa = PBXGroup;
-			children = (
-				32A4C3F51C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.h */,
-				32A4C3F61C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.m */,
-			);
-			path = KTJPushQueueForNavigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325C1F761E4C7CE300FF6B5D /* KTJPushQueueForNavigationDelegate.m in Sources */,
 				32A4C3E51C1E8B5800A931A2 /* ViewController.m in Sources */,
 				32A4C3FA1C1E8E5700A931A2 /* XXXViewController.m in Sources */,
 				32A4C3E21C1E8B5800A931A2 /* AppDelegate.m in Sources */,
-				32A4C3F71C1E8B9A00A931A2 /* KTJPushQueueForNavigationDelegate.m in Sources */,
 				32A4C3DF1C1E8B5800A931A2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +319,7 @@
 				32A4C3F31C1E8B5800A931A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,6 +1,6 @@
 //
 //  KTJPushQueueForNavigationDelegate.h
-//  xxx
+//  https://github.com/madordie/KTJPushQueueForNavigation.git
 //
 //  Created by 孙继刚 on 15/12/13.
 //  Copyright © 2015年 Madordie. All rights reserved.
@@ -22,7 +22,7 @@
 
 //  提供以下接口进行调用
 //      1、采用类别的方式，并且可以自定义所HOOK的类，对XXNavigationController宏进行赋值即可。可以自定义Navigation可以UINavigation。
-//      2、采用集成的方式，继承自此类。无HOOK。无HOOK。无HOOK。
+//      2、采用继承的方式，继承自此类。无HOOK。无HOOK。无HOOK。
 //  用法：
 //      1、选择上面两种方式使用;
 //      2、设置ktj_useNavPushQueue = YES。默认NO;
@@ -44,9 +44,9 @@
 
 #ifdef KTJNavQueueUseExtension
 
-    #import "FDDNavigationController.h" //  根据自己需要引入自己NavigationController的头文件并赋给下方宏
-    #define XXNavigationController  FDDNavigationController
-    @interface XXNavigationController (KTJPushQueue)
+    #import "NavigationController.h" //  根据自己需要引入自己NavigationController的头文件并赋给下方宏
+    #define KTJXXNavigationController  UINavigationController
+    @interface KTJXXNavigationController (KTJPushQueue)
 
     @property (nonatomic, assign) BOOL ktj_useNavPushQueue; //  default NO.
 
@@ -54,14 +54,27 @@
 
     @end
 
+    @interface UIViewController (KTJPushQueue)
+
+    @end
+
 #else
 
-    @interface KTJPushQueueNavigation : UINavigationController
+    @interface KTJPushQueueForNavigation : UINavigationController
 
     - (void)setKtj_useNavPushQueue:(BOOL)ktj_useNavPushQueue;
     - (BOOL)ktj_useNavPushQueue;    //  Default NO.
 
     - (KTJPushQueueForNavigationDelegate *)ktj_navPushQueue;
+
+    @end
+
+    @interface UIViewController (KTJPushQueue)
+
+    /**
+     *  需要手动在viewDidDisappear
+     */
+    - (void)ktj_tellPushQueueViewDidAppear;
 
     @end
 

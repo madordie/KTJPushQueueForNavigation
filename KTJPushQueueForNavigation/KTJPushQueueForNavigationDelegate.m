@@ -1,6 +1,6 @@
 //
 //  KTJPushQueueForNavigationDelegate.m
-//  xxx
+//  https://github.com/madordie/KTJPushQueueForNavigation.git
 //
 //  Created by 孙继刚 on 15/12/13.
 //  Copyright © 2015年 Madordie. All rights reserved.
@@ -92,7 +92,7 @@
         }
     #endif
     #import <objc/runtime.h>
-    @implementation XXNavigationController (KTJPushQueue)
+    @implementation KTJXXNavigationController (KTJPushQueue)
 
     + (void)load {
         static dispatch_once_t onceToken;
@@ -103,16 +103,16 @@
 
     - (void)hook_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
         if (self.ktj_useNavPushQueue == NO) {
-            [super pushViewController:viewController animated:animated];
+            [self hook_pushViewController:viewController animated:animated];
         } else {
             if (self.viewControllers.count == 0) {
-                [super pushViewController:viewController animated:animated];
+                [self hook_pushViewController:viewController animated:animated];
             } else {
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     if (self.ktj_navPushQueue.isPushing) {
                         [self.ktj_navPushQueue.showVCQueue addObject:[KTJPushVCQueueItem itemWithVC:viewController animated:animated]];
                     } else {
-                        [super pushViewController:viewController animated:animated];
+                        [self hook_pushViewController:viewController animated:animated];
                         [self.ktj_navPushQueue autoFinishPusing];
                     }
                 });
@@ -140,15 +140,35 @@
 
     @end
 
+@implementation UIViewController (KTJPushQueue)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        KTJChangeIMP(@selector(viewDidAppear:), @selector(hook_viewDidAppear:));
+    });
+}
+- (void)hook_viewDidAppear:(BOOL)animated {
+    [self hook_viewDidAppear:animated];
+    if ([self.navigationController isKindOfClass:[KTJXXNavigationController class]]) {
+        KTJXXNavigationController *navigation = (KTJXXNavigationController *)self.navigationController;
+        if (navigation.ktj_useNavPushQueue) {
+            navigation.ktj_navPushQueue.isPushing = NO;
+        }
+    }
+}
+
+@end
+
 #else
 
-    @interface KTJPushQueueNavigation ()
+    @interface KTJPushQueueForNavigation ()
 
     @property (nonatomic, strong) NSNumber *default_useNavPushQueue;
     @property (nonatomic, strong) KTJPushQueueForNavigationDelegate *ktj_navPushQueue;
 
     @end
-    @implementation KTJPushQueueNavigation
+    @implementation KTJPushQueueForNavigation
 
     - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
         if (self.ktj_useNavPushQueue == NO) {
@@ -185,6 +205,19 @@
     - (BOOL)ktj_useNavPushQueue {
         NSNumber *use = self.default_useNavPushQueue;
         return use?[use boolValue]:NO;
+    }
+
+    @end
+
+    @implementation UIViewController (KTJPushQueue)
+
+    - (void)ktj_tellPushQueueViewDidAppear {
+        if ([self.navigationController isKindOfClass:[KTJPushQueueForNavigation class]]) {
+            KTJPushQueueForNavigation *navigation = (KTJPushQueueForNavigation *)self.navigationController;
+            if (navigation.ktj_useNavPushQueue) {
+                navigation.ktj_navPushQueue.isPushing = NO;
+            }
+        }
     }
 
     @end
