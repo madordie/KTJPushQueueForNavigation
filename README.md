@@ -8,4 +8,4 @@
 
 本文解决该Crash，实现嵌套安全的去推页面。
 
-分析及其他方案见 [blog]http://madordie.leanote.com/post/ruhezhengquedelianxutuixinyemian
+分析及其他方案见 [blog](http://madordie.leanote.com/post/ruhezhengquedelianxutuixinyemian)
