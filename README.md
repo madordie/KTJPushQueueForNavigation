@@ -8,4 +8,4 @@
 
 本文解决该Crash，实现嵌套安全的去推页面。
 
-分析及其他方案见 [blog](https://madordie.github.io/push-queue-for-navigation/)
+分析及其他方案见 [blog](https://madordie.github.io/post/push-queue-for-navigation/)
